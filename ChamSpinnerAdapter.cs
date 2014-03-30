@@ -6,7 +6,7 @@ using Android.Views;
 using Android.Widget;
 using Cirrious.MvvmCross.Binding.ExtensionMethods;
 
-namespace Cham.Droid.Toolkit
+namespace Cham.Droid.ToolkitX
 {
 	public class ChamSpinnerAdapter : MvxAdapter
 	{

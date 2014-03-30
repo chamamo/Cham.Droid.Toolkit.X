@@ -96,7 +96,7 @@ namespace Cham.Droid.ToolkitX
 
 		public AutoCompleteTextView AutoCompleteTextView { get; private set; }
 
-		public new ChamFilteringAdapter Adapter
+		public ChamFilteringAdapter Adapter
 		{
 			get { return AutoCompleteTextView.Adapter as ChamFilteringAdapter; }
 			set

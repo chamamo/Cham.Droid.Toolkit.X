@@ -14,7 +14,7 @@ using Android.Views.InputMethods;
 
 namespace Cham.Droid.ToolkitX
 {
-    public class ChamSpinner : LinearLayout, IChamSpinner
+	public class ChamSpinner : LinearLayout, IChamSpinner
 	{
 		public EventHandler<AdapterView.ItemSelectedEventArgs> ItemSelected;
 
@@ -23,40 +23,39 @@ namespace Cham.Droid.ToolkitX
 		{		
 		}
 
-        public ChamSpinner(Context context, IAttributeSet attrs, int defStyle)
-            : this(context, attrs, defStyle, new ChamSpinnerAdapter(context))
-        {
-        }
+		public ChamSpinner (Context context, IAttributeSet attrs, int defStyle)
+            : this (context, attrs, defStyle, new ChamSpinnerAdapter (context))
+		{
+		}
 
-	    public ChamSpinner(Context context, IAttributeSet attrs, int defStyle, IMvxAdapter adapter) : base(context, attrs, defStyle)
-	    {
-	        ((IMvxBindingContextOwner) Context).BindingInflate(Resource.Layout.ChamSpinnerLayout, this);
-	        Spinner = FindViewById<Spinner>(Resource.Id.ChamSpinnerSpinner);
-	        int itemTemplateId = MvxAttributeHelpers.ReadListItemTemplateId(context, attrs);
-	        int dropDownItemTemplateId = MvxAttributeHelpers.ReadDropDownListItemTemplateId(context, attrs);
-	        adapter.ItemTemplateId = itemTemplateId;
-	        adapter.DropDownItemTemplateId = dropDownItemTemplateId;
-	        Adapter = adapter;
-	        SetupHandleItemSelected();
+		public ChamSpinner (Context context, IAttributeSet attrs, int defStyle, IMvxAdapter adapter) : base (context, attrs, defStyle)
+		{
+			((IMvxBindingContextOwner)Context).BindingInflate (Resource.Layout.ChamSpinnerLayout, this);
+			Spinner = FindViewById<Spinner> (Resource.Id.ChamSpinnerSpinner);
+			int itemTemplateId = MvxAttributeHelpers.ReadListItemTemplateId (context, attrs);
+			int dropDownItemTemplateId = MvxAttributeHelpers.ReadDropDownListItemTemplateId (context, attrs);
+			adapter.ItemTemplateId = itemTemplateId;
+			adapter.DropDownItemTemplateId = dropDownItemTemplateId;
+			Adapter = adapter;
+			SetupHandleItemSelected ();
 
-            var textView = FindViewById<TextView>(Resource.Id.Cham_TextView);
-            var fooEditText = FindViewById<EditText>(Resource.Id.FooEditText);
-            fooEditText.InputType = global::Android.Text.InputTypes.Null;
+			var textView = FindViewById<TextView> (Resource.Id.Cham_TextView);
+			var fooEditText = FindViewById<EditText> (Resource.Id.FooEditText);
+			fooEditText.InputType = global::Android.Text.InputTypes.Null;
 
-            Owner = new ChamSpinnerOwner(textView, fooEditText, attrs, defStyle);
-            
-            Spinner.Touch += Spinner_Touch;
-	    }
+			Owner = new ChamSpinnerOwner (textView, fooEditText, attrs, defStyle);
+			Spinner.Touch += Spinner_Touch;
+		}
 
-        public string Header
-        {
-            get { return Owner.Header; }
-            set { Owner.Header = value; }
-        }
+		public string Header
+		{
+			get { return Owner.Header; }
+			set { Owner.Header = value; }
+		}
 
-        public ChamSpinnerOwner Owner { get; set; }
+		public ChamSpinnerOwner Owner { get; set; }
 
-        public Spinner Spinner{ get; private set; }
+		public Spinner Spinner{ get; private set; }
 
 		public IMvxAdapter Adapter
 		{
@@ -77,14 +76,14 @@ namespace Cham.Droid.ToolkitX
 			}
 		}
 
-	    [MvxSetToNullAfterBinding]
-	    public IEnumerable ItemsSource
-	    {
-	        get { return Adapter.ItemsSource; }
-	        set { Adapter.ItemsSource = value; }
-	    }
+		[MvxSetToNullAfterBinding]
+		public IEnumerable ItemsSource
+		{
+			get { return Adapter.ItemsSource; }
+			set { Adapter.ItemsSource = value; }
+		}
 
-	    public int ItemTemplateId
+		public int ItemTemplateId
 		{
 			get { return Adapter.ItemTemplateId; }
 			set { Adapter.ItemTemplateId = value; }
@@ -106,20 +105,20 @@ namespace Cham.Droid.ToolkitX
 				HandleSelected (position);
 				if (ItemSelected != null)
 					ItemSelected (sender, args);
-			    Error = null;
+				Error = null;
 			};
 		}
 
-        private void Spinner_Touch(object sender, global::Android.Widget.AdapterView.TouchEventArgs e)
-        {
-            if (!string.IsNullOrEmpty(Owner.FooEditText.Error))
-            {
-                Spinner.RequestFocus();
-                var imm = (InputMethodManager)Context.GetSystemService(Context.InputMethodService);
-                imm.HideSoftInputFromWindow(Owner.FooEditText.WindowToken, 0);
-                //Owner.FooEditText.RequestFocus();
-            }
-        }
+		private void Spinner_Touch (object sender, global::Android.Widget.AdapterView.TouchEventArgs e)
+		{
+			Spinner.RequestFocus ();
+			if (!string.IsNullOrEmpty (Owner.FooEditText.Error))
+			{
+				var imm = (InputMethodManager)Context.GetSystemService (Context.InputMethodService);
+				imm.HideSoftInputFromWindow (Owner.FooEditText.WindowToken, 0);
+				//Owner.FooEditText.RequestFocus();
+			}
+		}
 
 		protected virtual void HandleSelected (int position)
 		{
@@ -135,13 +134,13 @@ namespace Cham.Droid.ToolkitX
 
 		public string Error
 		{
-            set { Owner.Error = value; }
+			set { Owner.Error = value; }
 		}
 
 		public bool Required
 		{
-            get { return Owner.Required; }
-            set { Owner.Required = value; }
+			get { return Owner.Required; }
+			set { Owner.Required = value; }
 		}
 	}
 }
