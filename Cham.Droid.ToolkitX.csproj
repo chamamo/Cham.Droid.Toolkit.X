@@ -125,7 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cham.Droid.Toolkit\Cham.Droid.Toolkit\Cham.Droid.Toolkit.csproj">
-      <Project>{DC104698-C348-4B65-908F-08EDD1B0B917}</Project>
+      <Project>{dc104698-c348-4b65-908f-08edd1b0b917}</Project>
       <Name>Cham.Droid.Toolkit</Name>
     </ProjectReference>
   </ItemGroup>
