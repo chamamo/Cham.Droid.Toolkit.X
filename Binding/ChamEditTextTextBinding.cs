@@ -7,7 +7,15 @@ using Cirrious.MvvmCross.Binding.Bindings.Target;
 
 namespace Cham.Droid.ToolkitX.Binding
 {
-    public class ChamEditTextTextBinding : MvxPropertyInfoTargetBinding<ChamEditText>, IChamValidationBinding
+	public class ChamEditTextTextBinding : ChamEditTextTextBinding<ChamEditText>
+	{
+		public ChamEditTextTextBinding (object target, PropertyInfo targetPropertyInfo) : base (target, targetPropertyInfo)
+		{
+		}
+	}
+
+	public class ChamEditTextTextBinding<T> : MvxPropertyInfoTargetBinding<T>, IChamValidationBinding
+	where T : ChamEditText
 	{
 		public ChamEditTextTextBinding (object target, PropertyInfo targetPropertyInfo) : base (target, targetPropertyInfo)
 		{

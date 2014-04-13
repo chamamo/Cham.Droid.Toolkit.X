@@ -66,6 +66,7 @@ namespace Cham.Droid.ToolkitX
 
 			registry.RegisterFactory (new MvxSimplePropertyInfoTargetBindingFactory (typeof(ChamSpinnerHeaderBinding), typeof(ChamSpinner), "Header"));
 			registry.RegisterCustomBindingFactory<ChamSpinner> ("SelectedItem", spinner => new ChamSpinnerSelectedItemBinding (spinner));
+			registry.RegisterFactory (new MvxSimplePropertyInfoTargetBindingFactory (typeof(ChamSpinnerEnabledBinding), typeof(ChamSpinner), "Enabled"));
 
             registry.RegisterFactory(new MvxSimplePropertyInfoTargetBindingFactory(typeof(ChamAutoCompleteTextViewHeaderBinding), typeof(ChamAutoCompleteTextView), "Header"));
             registry.RegisterPropertyInfoBindingFactory((typeof(ChamAutoCompleteTextViewPartialTextTargetBinding)),

@@ -16,7 +16,16 @@ using Cirrious.MvvmCross.Binding.Bindings.Target;
 
 namespace Cham.Droid.ToolkitX.Binding
 {
-    public class ChamAutoCompleteTextViewPartialTextTargetBinding: MvxPropertyInfoTargetBinding<ChamAutoCompleteTextView>
+	public class ChamAutoCompleteTextViewPartialTextTargetBinding: ChamAutoCompleteTextViewPartialTextTargetBinding<ChamAutoCompleteTextView>
+	{
+		public ChamAutoCompleteTextViewPartialTextTargetBinding(object target, PropertyInfo targetPropertyInfo)
+			: base(target, targetPropertyInfo)
+		{
+		}
+	}
+
+	public class ChamAutoCompleteTextViewPartialTextTargetBinding<T>: MvxPropertyInfoTargetBinding<T>
+		where T : ChamAutoCompleteTextView
     {
         private bool _subscribed;
 

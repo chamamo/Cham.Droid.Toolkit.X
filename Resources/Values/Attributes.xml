@@ -3,5 +3,6 @@
 <resources>
   <declare-styleable name="ChamDroidToolkitXTheme" parent="ChamDroidToolkitTheme">
     <attr name="ChamSpinnerStyle" format="reference"/>
+    <attr name="ChamAutoCompleteTextViewStyle" format="reference"/>
   </declare-styleable>
 </resources>

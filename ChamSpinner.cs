@@ -53,6 +53,19 @@ namespace Cham.Droid.ToolkitX
 			set { Owner.Header = value; }
 		}
 
+		public override bool Enabled
+		{
+			get
+			{
+				return base.Enabled;
+			}
+			set
+			{
+				base.Enabled = value;
+				Spinner.Enabled = value;
+			}
+		}
+
 		public ChamSpinnerOwner Owner { get; set; }
 
 		public Spinner Spinner{ get; private set; }
@@ -111,13 +124,14 @@ namespace Cham.Droid.ToolkitX
 
 		private void Spinner_Touch (object sender, global::Android.Widget.AdapterView.TouchEventArgs e)
 		{
-			Spinner.RequestFocus ();
 			if (!string.IsNullOrEmpty (Owner.FooEditText.Error))
 			{
+				Spinner.RequestFocus ();
 				var imm = (InputMethodManager)Context.GetSystemService (Context.InputMethodService);
 				imm.HideSoftInputFromWindow (Owner.FooEditText.WindowToken, 0);
 				//Owner.FooEditText.RequestFocus();
 			}
+			Spinner.PerformClick ();
 		}
 
 		protected virtual void HandleSelected (int position)

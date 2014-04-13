@@ -28,7 +28,6 @@ namespace Cham.Droid.ToolkitX
             : base(headerTextView, attrs, defStyle)
         {
             FooEditText = fooEditText;
-
         }
 
         #endregion

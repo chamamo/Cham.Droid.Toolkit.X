@@ -18,19 +18,30 @@ using Cham.Droid.Toolkit;
 
 namespace Cham.Droid.ToolkitX
 {
-	public class ChamAutoCompleteTextView : LinearLayout, IChamValidation
+	public class ChamAutoCompleteTextView : LinearLayout, IChamEditText
 	{
 		public EventHandler AfterTextChanged;
 
+
+		public ChamAutoCompleteTextView (Context context) : base (context)
+		{
+
+		}
+
 		public ChamAutoCompleteTextView (Context context, IAttributeSet attrs)
-            : this (context, attrs, new ChamFilteringAdapter (context))
+			: this (context, attrs, Resource.Attribute.ChamAutoCompleteTextViewStyle)
 		{
 		}
 
-		public ChamAutoCompleteTextView (Context context, IAttributeSet attrs, ChamFilteringAdapter adapter)
+		public ChamAutoCompleteTextView (Context context, IAttributeSet attrs, int defStyle)
+			: this (context, attrs, defStyle, new ChamFilteringAdapter (context))
+		{
+		}
+
+		public ChamAutoCompleteTextView (Context context, IAttributeSet attrs, int defStyle, ChamFilteringAdapter adapter)
             : base (context, attrs)
 		{
-			((IMvxBindingContextOwner)Context).BindingInflate (Resource.Layout.ChamAutoCompleteTextViewLayout, this);
+			((IMvxBindingContextOwner)Context).BindingInflate (LayoutId, this);
 			var itemTemplateId = MvxAttributeHelpers.ReadListItemTemplateId (context, attrs);
 			adapter.ItemTemplateId = itemTemplateId;
 			AutoCompleteTextView = FindViewById<AutoCompleteTextView> (Resource.Id.AutoCompleteTextView);
@@ -41,8 +52,10 @@ namespace Cham.Droid.ToolkitX
 			var textView = FindViewById<TextView> (Resource.Id.ChamHeader);
 			var autoCompleteView = FindViewById<AutoCompleteTextView> (Resource.Id.AutoCompleteTextView);
 			autoCompleteView.AfterTextChanged += EditTextAfterTextChanged;
-			Owner = new ChamAutoCompleteTextViewOwner (textView, autoCompleteView, attrs, 0);
+			Owner = new ChamAutoCompleteTextViewOwner (textView, autoCompleteView, attrs, defStyle);
 		}
+
+		protected virtual int LayoutId { get { return Resource.Layout.ChamAutoCompleteTextViewLayout; } }
 
 		public string Error
 		{
