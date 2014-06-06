@@ -107,6 +107,19 @@ namespace Cham.Droid.ToolkitX
 			SelectedObject = selectedObject;
 		}
 
+		public override bool Enabled
+		{
+			get
+			{
+				return base.Enabled;
+			}
+			set
+			{
+				base.Enabled = value;
+				AutoCompleteTextView.Enabled = value;
+			}
+		}
+
 		public AutoCompleteTextView AutoCompleteTextView { get; private set; }
 
 		public ChamFilteringAdapter Adapter
