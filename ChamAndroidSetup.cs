@@ -8,6 +8,7 @@ using Cirrious.CrossCore.Platform;
 using Cirrious.MvvmCross.Binding.Bindings.Target.Construction;
 using Cirrious.MvvmCross.Droid.Platform;
 using Cirrious.MvvmCross.ViewModels;
+using Cirrious.MvvmCross.Binding.Droid.Target;
 
 namespace Cham.Droid.ToolkitX
 {
@@ -66,6 +67,8 @@ namespace Cham.Droid.ToolkitX
 
 			registry.RegisterFactory (new MvxSimplePropertyInfoTargetBindingFactory (typeof(ChamSpinnerHeaderBinding), typeof(ChamSpinner), "Header"));
 			registry.RegisterCustomBindingFactory<ChamSpinner> ("SelectedItem", spinner => new ChamSpinnerSelectedItemBinding (spinner));
+			registry.RegisterCustomBindingFactory<ChamSpinner>("ActionButtonClick", view => new ChamSpinnerActionButtonClickBinding(view));
+
 			registry.RegisterFactory (new MvxSimplePropertyInfoTargetBindingFactory (typeof(ChamSpinnerEnabledBinding), typeof(ChamSpinner), "Enabled"));
 
             registry.RegisterFactory(new MvxSimplePropertyInfoTargetBindingFactory(typeof(ChamAutoCompleteTextViewHeaderBinding), typeof(ChamAutoCompleteTextView), "Header"));

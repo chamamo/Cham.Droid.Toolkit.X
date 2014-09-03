@@ -207,5 +207,10 @@ namespace Cham.Droid.ToolkitX
 		{
 			OnAfterTextChanged ();
 		}
+
+		public new bool RequestFocus()
+		{
+			return Owner.RequestFocus ();
+		}
 	}
 }

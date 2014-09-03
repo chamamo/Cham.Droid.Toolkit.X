@@ -17,6 +17,7 @@ namespace Cham.Droid.ToolkitX
 	public class ChamSpinner : LinearLayout, IChamSpinner
 	{
 		public EventHandler<AdapterView.ItemSelectedEventArgs> ItemSelected;
+		public EventHandler ActionButtonClick;
 
 		public ChamSpinner (Context context, IAttributeSet attrs)
 			: this (context, attrs, Resource.Attribute.ChamSpinnerStyle)
@@ -42,8 +43,12 @@ namespace Cham.Droid.ToolkitX
 			var textView = FindViewById<TextView> (Resource.Id.Cham_TextView);
 			var fooEditText = FindViewById<EditText> (Resource.Id.FooEditText);
 			fooEditText.InputType = global::Android.Text.InputTypes.Null;
-
-			Owner = new ChamSpinnerOwner (textView, fooEditText, attrs, defStyle);
+			var button = FindViewById<Button> (Resource.Id.ButtonAction);
+			button.Click+= (object sender, EventArgs e) => 
+			{
+				if(ActionButtonClick!=null)ActionButtonClick(sender, e);
+			};
+			Owner = new ChamSpinnerOwner (textView, fooEditText, button, attrs, defStyle);
 			Spinner.Touch += Spinner_Touch;
 		}
 
@@ -51,6 +56,11 @@ namespace Cham.Droid.ToolkitX
 		{
 			get { return Owner.Header; }
 			set { Owner.Header = value; }
+		}
+
+		public Button Button
+		{
+			get { return Owner.Button; }
 		}
 
 		public override bool Enabled
@@ -155,6 +165,11 @@ namespace Cham.Droid.ToolkitX
 		{
 			get { return Owner.Required; }
 			set { Owner.Required = value; }
+		}
+
+		public new bool RequestFocus()
+		{
+			return Owner.RequestFocus ();
 		}
 	}
 }

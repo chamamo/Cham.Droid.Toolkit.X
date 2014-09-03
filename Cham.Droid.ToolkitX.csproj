@@ -98,6 +98,7 @@
     <Compile Include="ChamAndroidSetup.cs" />
     <Compile Include="Binding\ChamAutoCompleteTextViewTextBinding.cs" />
     <Compile Include="Binding\ChamSpinnerEnabledBinding.cs" />
+    <Compile Include="Binding\ChamSpinnerActionButtonClickBinding.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

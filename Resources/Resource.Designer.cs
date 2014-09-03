@@ -27,6 +27,9 @@ namespace Cham.Droid.ToolkitX
 		public partial class Attribute
 		{
 			
+			// aapt resource value: 0x7f01000f
+			public static int ActionButtonbackground = 2130771983;
+			
 			// aapt resource value: 0x7f01000d
 			public static int ChamAutoCompleteTextViewStyle = 2130771981;
 			
@@ -59,6 +62,9 @@ namespace Cham.Droid.ToolkitX
 			
 			// aapt resource value: 0x7f010006
 			public static int Required = 2130771974;
+			
+			// aapt resource value: 0x7f01000e
+			public static int ShowActionButton = 2130771982;
 			
 			// aapt resource value: 0x7f010008
 			public static int Text = 2130771976;
@@ -109,6 +115,12 @@ namespace Cham.Droid.ToolkitX
 			
 			// aapt resource value: 0x7f060001
 			public static int AutoCompleteTextView = 2131099649;
+			
+			// aapt resource value: 0x7f060009
+			public static int ButtonAction = 2131099657;
+			
+			// aapt resource value: 0x7f060008
+			public static int ButtonActionLayout = 2131099656;
 			
 			// aapt resource value: 0x7f060003
 			public static int ChamDatePickerButton = 2131099651;
@@ -325,6 +337,16 @@ namespace Cham.Droid.ToolkitX
 			
 			// aapt resource value: 1
 			public static int ChamHeader_Required = 1;
+			
+			public static int[] ChamSpinner = new int[] {
+					2130771982,
+					2130771983};
+			
+			// aapt resource value: 1
+			public static int ChamSpinner_ActionButtonbackground = 1;
+			
+			// aapt resource value: 0
+			public static int ChamSpinner_ShowActionButton = 0;
 			
 			public static int[] ChamText = new int[] {
 					2130771976,

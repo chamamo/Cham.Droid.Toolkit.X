@@ -13,16 +13,28 @@
         android:layout_height="wrap_content">
         <Spinner
             android:id="@+id/ChamSpinnerSpinner"
+            android:layout_toLeftOf="@+id/FooEditText"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true" />
         <EditText
             android:id="@+id/FooEditText"
+            android:layout_toLeftOf="@+id/ButtonActionLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
-            android:layout_alignParentRight="true"
             android:layout_marginRight="5dp"
             android:focusable="false"
             android:inputType="none" />
+        <LinearLayout
+            android:id="@+id/ButtonActionLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="36dip"
+            android:layout_alignParentRight="true">
+            <Button
+                android:id="@+id/ButtonAction"
+                android:layout_width="36dip"
+                android:layout_height="36dip" />
+        </LinearLayout>
     </RelativeLayout>
 </LinearLayout>
