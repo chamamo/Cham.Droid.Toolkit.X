@@ -70,6 +70,9 @@
     <Reference Include="Cirrious.MvvmCross.Droid">
       <HintPath>packages\MvvmCross.HotTuna.MvvmCrossLibraries.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Droid.dll</HintPath>
     </Reference>
+    <Reference Include="Cham.Droid.Toolkit">
+      <HintPath>packages\Cham.Droid.Toolkit.1.0.0\lib\MonoAndroid\Cham.Droid.Toolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Binding\ChamAutoCompleteTextViewPartialTextTargetBinding.cs" />
@@ -122,12 +125,6 @@
   <ItemGroup>
     <Folder Include="Converters\" />
     <Folder Include="Views\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Cham.Droid.Toolkit\Cham.Droid.Toolkit\Cham.Droid.Toolkit.csproj">
-      <Project>{DC104698-C348-4B65-908F-08EDD1B0B917}</Project>
-      <Name>Cham.Droid.Toolkit</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
